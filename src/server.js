@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const appConfig = require("./config/config.js");
+const productRouter = require('./router/productRouter.js');
 
 //connect mongodb
 async function connetMongoDB() {
@@ -16,6 +17,12 @@ function initServer() {
   const app = express();
   app.listen(appConfig.PORT);
   connetMongoDB();
+  //route middlewares
+  app.get("/", (req, res) => {
+    res.send("Server is alive");
+  });
+
+  app.use("/api", productRouter);
 }
 
 initServer();
