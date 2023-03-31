@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const appConfig = require("./config/config.js");
 const productRouter = require('./router/productRouter.js');
+const bodyParser = require('body-parser');
 
 //connect mongodb
 async function connetMongoDB() {
@@ -17,6 +18,10 @@ function initServer() {
   const app = express();
   app.listen(appConfig.PORT);
   connetMongoDB();
+
+  // middlewares
+  app.use(express.json());
+  app.use(bodyParser.json());
   //route middlewares
   app.get("/", (req, res) => {
     res.send("Server is alive");
