@@ -7,4 +7,4 @@ const createProduct = async ({ productPayload }) => {
 
 module.exports = {
   createProduct,
-};
+}; 
