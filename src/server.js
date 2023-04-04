@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const appConfig = require("./config/config.js");
-const productRouter = require('./router/productRouter.js');
-const bodyParser = require('body-parser');
-
+const productRouter = require("./router/productRouter.js");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 //connect mongodb
 async function connetMongoDB() {
   try {
@@ -22,6 +22,12 @@ function initServer() {
   // middlewares
   app.use(express.json());
   app.use(bodyParser.json());
+  app.use(
+    cors({
+      origin: ["http://localhost:3000"],
+      credentials: true,
+    })
+  );
   //route middlewares
   app.get("/", (req, res) => {
     res.send("Server is alive");
