@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.data {
+  padding: 20px;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+tr:hover {
+  background-color: #ddd;
+}
+.nextAndPrevious{
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sortButtons{
+    display: flex;
+    justify-content: space-between;
+}
